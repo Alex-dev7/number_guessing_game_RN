@@ -1,8 +1,8 @@
-import React from 'react'
+import { Text } from 'react-native'
 
 function GameScreen() {
   return (
-    <div>GameScreen</div>
+    <Text>Game Over!</Text>
   )
 }
 
