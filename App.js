@@ -75,7 +75,7 @@ if (!fontsLoaded) {
   return (
     <LinearGradient colors={['#ddb52f', '#4e0329']} style={styles.rootScreen} onLayout={onLayoutRootView}>
       <ImageBackground 
-        source={require('./assets/images/background.png')} 
+        source={require('./assets/images/background.jpg')} 
         resizeMode='cover' 
         style={styles.rootScreen} 
         imageStyle={styles.backgroundImage}
@@ -92,9 +92,8 @@ if (!fontsLoaded) {
 const styles = StyleSheet.create({
   rootScreen: {
     flex: 1,
-    // backgroundColor: '#ddb52f',
   },
   backgroundImage:{
-    opacity: 0.15,
+    opacity: 0.25,
   }
 });

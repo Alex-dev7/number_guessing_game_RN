@@ -1,8 +1,8 @@
 import { Text, StyleSheet } from "react-native"
 
-function Title({children}) {
+function Title({children, style}) {
   return (
-    <Text style={styles.title}>{children}</Text>
+    <Text style={[styles.title, style]}>{children}</Text>
   )
 }
 
