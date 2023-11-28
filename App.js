@@ -39,8 +39,9 @@ if (!fontsLoaded) {
   setGameOver(false)
  }
 
- function gameOverHandler(){
+ function gameOverHandler(numberOfRounds){
   setGameOver(true)
+  setGuessRounds(numberOfRounds)
  }
 
  function startNewGameHandler() {

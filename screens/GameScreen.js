@@ -7,6 +7,7 @@ import NumberContainer from '../components/game/NumberContainer';
 import PrimaryButton from '../components/ui/PrimaryButton';
 import Card from '../components/ui/Card';
 import InstructionText from '../components/ui/InstructionText';
+import GoessLogItem from '../components/game/GoessLogItem';
 
 
 function generateRandomBetween(min, max, exclude) {
@@ -30,7 +31,7 @@ function GameScreen({ userNumber, onGameOver }) {
 
   useEffect(() => {
     if(currentGuess === userNumber) {
-      onGameOver()
+      onGameOver(guessRounds.length)
     }
   }, [currentGuess, userNumber, onGameOver])
 
@@ -61,6 +62,7 @@ function GameScreen({ userNumber, onGameOver }) {
   }
 
 
+  const guessRoundsListLength = guessRounds.length
 
 
 
@@ -83,10 +85,12 @@ function GameScreen({ userNumber, onGameOver }) {
         </View>
       </Card>
       <View>
-       <View>
-        {/* when having a limited amound of items it's ok to map over instead of using FlatList component */}
-        {guessRounds.map(guessRound => <Text key={guessRound}>{guessRound}</Text> )}
-        
+       <View style={styles.listContainer}>
+          {/* when having a limited amound of items it's ok to map over instead of using FlatList component */}
+          {/* {guessRounds.map(guessRound => <Text key={guessRound}>{guessRound}</Text> )} */}
+          <FlatList data={guessRounds}  renderItem={(itemData) =>( <GoessLogItem roundNumber={guessRoundsListLength - itemData.index} guess={itemData.item} />)}
+          keyExtractor={(item) => item} // when data does not have a key
+          />
        </View>
       </View>
     </View>
@@ -109,6 +113,10 @@ const styles = StyleSheet.create({
   },
   buttonContainer: {
     flex: 1,
+  },
+  listContainer: {
+    // flex: 1,
+    padding: 16,
   }
 
 })

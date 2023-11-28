@@ -54,6 +54,6 @@ const styles = StyleSheet.create({
   highlight: {
     fontFamily: 'Helvetica',
     fontWeight: 'bold',
-    color: 'white',
+    color: '#ddb52f',
   }
 })
