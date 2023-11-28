@@ -14,9 +14,9 @@ SplashScreen.preventAutoHideAsync()
 
 
 export default function App() {
- const [userNumber, setUserNumer] =  useState()
+ const [userNumber, setUserNumber] =  useState()
  const [gameOver, setGameOver] = useState(true)
-
+ const [guessRounds, setGuessRounds] = useState(0)
 
  const [fontsLoaded] = useFonts({
   'OpenSans' : require('./assets/fonts/OpenSans-Regular.ttf'),
@@ -33,28 +33,19 @@ if (!fontsLoaded) {
   return null;
 }
 
-//  useEffect(() => {
-//   async function prepare() {
-//     await SplashScreen.preventAutoHideAsync()
-//   }
-
-//   prepare()
-//  }, [])
-
-
-//  if(!fontsLoaded){
-//   return undefined
-//  } else {
-//   SplashScreen.hideAsync()
-//  }
 
  function pickedNumberHandler(pickedNumber){
-  setUserNumer(pickedNumber)
+  setUserNumber(pickedNumber)
   setGameOver(false)
  }
 
  function gameOverHandler(){
   setGameOver(true)
+ }
+
+ function startNewGameHandler() {
+  setUserNumber(null)
+  setGuessRounds(0)
  }
 
  let screen = <StartGameScreen onPickNumber={pickedNumberHandler}/>
@@ -66,7 +57,7 @@ if (!fontsLoaded) {
  }
 
  if(gameOver && userNumber) {
-  screen = <GameOverScreen />
+  screen = <GameOverScreen userNumber={userNumber}  roundsNumber={guessRounds} onStartNewGame={startNewGameHandler}/>
  }
 
 
