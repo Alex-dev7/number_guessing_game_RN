@@ -80,7 +80,7 @@ function GameScreen({ userNumber, onGameOver }) {
           </View>
           <View style={styles.buttonContainer}>
             <PrimaryButton onPress={nextGuessHandler.bind(this, 'greater')}>
-            <Ionicons name='md-add' size={24} /></PrimaryButton>   
+            <Ionicons name='md-add' size={24}  /></PrimaryButton>   
           </View>    
         </View>
       </Card>
@@ -104,6 +104,7 @@ const styles = StyleSheet.create({
   screen: {
     flex: 1,
     padding: 24,
+    alignItems: 'center',
   },
   instructionText: {
     marginBottom: 24,

@@ -26,6 +26,7 @@ const styles = StyleSheet.create({
     padding: 24,
     justifyContent: 'center',
     alignContent: 'center',
+    alignItems: 'center',
   },
   title: {
     backgroundColor: '#24bca3',
